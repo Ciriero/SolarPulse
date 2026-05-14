@@ -1,0 +1,186 @@
+
+/* ================================================
+   FULL SECTION
+   Two column Layout: intro | card
+   ================================================ */
+
+.form-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+
+/* ================================================
+   LEFT COLUMN — Intro
+   ================================================ */
+
+.form-intro h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.form-intro p {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.form-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-stat span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-primary);
+}
+
+
+/* ================================================
+   RIGHT COLUMN
+   ================================================ */
+
+.form-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2rem;
+}
+
+.form-card h3 {
+  font-size: 1.3rem;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+}
+
+.form-card > p {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.75rem;
+}
+
+
+/* ================================================
+   FORM FIELDS
+   ================================================ */
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-field {
+  margin-bottom: 1rem;
+}
+
+.form-field label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 0.4rem;
+}
+
+/* ================================================
+   OPTIONAL LABEL
+   ================================================ */
+
+.form-field label span {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color var(--transition);
+  color: var(--color-text);
+  font-family: var(--ff-body);
+  font-size: 0.9rem;
+}
+
+.form-field input,
+.form-field select {
+  height: 2.5rem;
+}
+
+.form-field textarea {
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--color-primary);
+}
+
+
+/* ================================================
+   BUTTON AND NOTE
+   ================================================ */
+
+.btn-submit {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  font-family: var(--ff-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.75rem 1.4rem;
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  transition: background-color var(--transition);
+  margin-top: 0.5rem;
+}
+
+.btn-submit:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.form-note {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+
+@media (max-width: 768px) {
+  .form-section {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.25rem;
+    gap: 2.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
