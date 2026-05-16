@@ -58,15 +58,32 @@ const Form = () => {
         </div>
       )}
       <div className="form-intro">
-        <h2>Descubre cuánto puede ahorrar tu empresa</h2>
+        <div className="hero-badge">
+          <span className="hero-badge-dot"></span>
+          Energía solar para empresas
+        </div>
+        <h2>
+          Descubre cuánto puedes <span className="highlight">ahorrar</span> en
+          tu factura de la luz
+        </h2>
         <p>
-          Analizamos tu consumo y ubicación para calcular el potencial real de
-          una instalación solar. Sin compromisos.
+          Analizamos tu consumo y ubicación para calcular el beneficio real de
+          una instalación solar.
         </p>
+        <p className="form-disclaimer">Sin compromisos.</p>
         <div className="form-stat">
-          <span>Ahorro medio del 40% en la factura eléctrica</span>
-          <span>Amortización en 4 a 6 años</span>
-          <span>Más de 25 años de vida útil</span>
+          <div className="stat-item">
+            <span className="stat-num">40%</span>
+            <span className="stat-label">Ahorro medio en la factura anual</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-num">4-6 años</span>
+            <span className="stat-label">Plazo estimado de amortización</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-num">25 años</span>
+            <span className="stat-label">De vida útil garantizada</span>
+          </div>
         </div>
       </div>
 
@@ -82,6 +99,7 @@ const Form = () => {
                 type="text"
                 name="name"
                 id="name"
+                placeholder="Ej. Christian"
                 value={term.name}
                 onChange={handleInputs}
               />
@@ -93,6 +111,7 @@ const Form = () => {
                 type="email"
                 name="email"
                 id="email"
+                placeholder="ejemplo@ahorro.com"
                 value={term.email}
                 onChange={handleInputs}
               />
@@ -106,6 +125,7 @@ const Form = () => {
               name="zipcode"
               id="zipcode"
               value={term.zipcode}
+              placeholder="28001"
               onChange={handleInputs}
             />
           </div>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap");
 
 /* ================================================
    SOLARPULSE — index.css
@@ -7,15 +7,13 @@
    3. Basic styles
    ================================================ */
 
-
 /* ================================================
    LAYER 1 — RESET
    ================================================ */
 
-
-   
-
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -32,12 +30,19 @@ body {
   overflow-x: hidden;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
   color: inherit;
 }
@@ -51,35 +56,34 @@ a {
   color: inherit;
 }
 
-
 /* ================================================
    LAYER 2 — VARIABLES
    ================================================ */
 
-
 :root {
   /* Colores */
-  --color-bg:           #EEEEEE; /* Background color */
-  --color-surface:      #ffffff; /* Floating elements (cards, forms, modals) */
-  --color-primary:      #2FA084; /* Main color (buttons, active links, borders) */
-  --color-primary-hover:#1F6F5F; /* Main hover */
-  --color-accent:       #6FCF97; /* Minor details (icons) */
-  --color-text:         #2a2a2a; /* Main text */
-  --color-text-muted:   #888888; /* Minor text */
-  --color-border:       #cccccc; /* Borders */
-  --color-error:        #9b1c1c; /* Errors */
+  --color-bg: #f7f5f0; /* Background color */
+  --color-surface: #ffffff; /* Floating elements (cards, forms, modals) */
+  --color-primary: #2fa084; /* Main color (buttons, active links, borders) */
+  --color-primary-hover: #1f6f5f; /* Main hover */
+  --color-stat-label: #4a5568; /* Label */
+  --color-form-section-bg: #f8fafc; /* Backgorund secrion */
+  --color-accent: #6fcf97; /* Minor details (icons) */
+  --color-text: #2a2a2a; /* Main text */
+  --color-text-muted: #888888; /* Minor text */
+  --color-border: #cccccc; /* Borders */
+  --color-error: #9b1c1c; /* Errors */
 
   /* Typography */
-  --ff-heading: 'DM Serif Display', Georgia, serif;
-  --ff-body:    'DM Sans', system-ui, sans-serif;
+  --ff-heading: "DM Serif Display", Georgia, serif;
+  --ff-body: "DM Sans", system-ui, sans-serif;
 
   /* Miscellaneous */
-  --radius:     0.5rem;
-  --shadow:     0 4px 12px rgba(0, 0, 0, 0.08);
+  --radius: 0.5rem;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
   --transition: 0.2s ease-in-out;
-  --max-width:  1120px;
+  --max-width: 1120px;
 }
-
 
 /* ================================================
    LAYER 3 — BASIC STYLES
@@ -93,7 +97,11 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: var(--ff-heading);
   font-weight: 400;
   line-height: 1.2;
