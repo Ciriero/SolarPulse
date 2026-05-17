@@ -60,7 +60,7 @@ const Form = () => {
       <div className="form-intro">
         <div className="hero-badge">
           <span className="hero-badge-dot"></span>
-          Energía solar para empresas
+          Ahorro energético solar
         </div>
         <h2>
           Descubre cuánto puedes <span className="highlight">ahorrar</span> en
@@ -99,7 +99,7 @@ const Form = () => {
                 type="text"
                 name="name"
                 id="name"
-                placeholder="Ej. Christian"
+                placeholder="Ej. Juan García"
                 value={term.name}
                 onChange={handleInputs}
               />
