@@ -1,0 +1,55 @@
+/* ================================================
+   MODAL OVERLAY
+   ================================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+/* ================================================
+   MODAL BOX
+   ================================================ */
+
+.modal {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.modal h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.modal-btn {
+  align-self: center;
+  cursor: pointer;
+  font-family: var(--ff-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1.75rem;
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  transition: background-color var(--transition);
+}
+
+.modal-btn:hover {
+  background-color: var(--color-primary-hover);
+}

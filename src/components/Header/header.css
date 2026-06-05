@@ -1,0 +1,185 @@
+/* ================================================
+   HEADER
+   ================================================ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-inner {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* ================================================
+   LOGO
+   ================================================ */
+
+.logo {
+  display: flex;
+  align-items: center;
+  /* gap: 1px; */
+  text-decoration: none;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.logo-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  margin-right: 7px;
+  border: 0.7px solid black;
+}
+
+.logo-solar {
+  font-family: var(--ff-heading);
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.logo-pulse {
+  font-family: var(--ff-body);
+  font-weight: 500;
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
+}
+
+
+/* ================================================
+   NAV — desktop
+   ================================================ */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-family: var(--ff-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--color-text);
+}
+
+.nav-cta {
+  font-weight: 500;
+  color: #ffffff !important;
+  background-color: var(--color-primary);
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius);
+  transition: background-color var(--transition);
+}
+
+.nav-cta:hover {
+  background-color: var(--color-primary-hover);
+}
+
+
+/* ================================================
+   HAMBURGER BUTTON — hidden on desktop
+   ================================================ */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius);
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+  transform-origin: center;
+}
+
+/* X animation when open */
+.hamburger--open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger--open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger--open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: rgba(238, 238, 238, 0.97);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.5rem 0;
+  }
+
+  .nav--open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .nav-cta {
+    margin: 0.75rem 1.5rem;
+    padding: 0.65rem 1.1rem;
+    text-align: center;
+    border-radius: var(--radius);
+  }
+}

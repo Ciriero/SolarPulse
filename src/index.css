@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap");
+
+/* ================================================
+   SOLARPULSE — index.css
+   1. Reset
+   2. Variables
+   3. Basic styles
+   ================================================ */
+
+/* ================================================
+   LAYER 1 — RESET
+   ================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ================================================
+   LAYER 2 — VARIABLES
+   ================================================ */
+
+:root {
+  /* Colores */
+  --color-bg: #f7f5f0; /* Background color */
+  --color-surface: #ffffff; /* Floating elements (cards, forms, modals) */
+  --color-primary: #2fa084; /* Main color (buttons, active links, borders) */
+  --color-primary-hover: #1f6f5f; /* Main hover */
+  --color-stat-label: #4a5568; /* Label */
+  --color-form-section-bg: #f8fafc; /* Backgorund secrion */
+  --color-accent: #6fcf97; /* Minor details (icons) */
+  --color-text: #2a2a2a; /* Main text */
+  --color-text-muted: #888888; /* Minor text */
+  --color-border: #cccccc; /* Borders */
+  --color-error: #9b1c1c; /* Errors */
+
+  /* Typography */
+  --ff-heading: "DM Serif Display", Georgia, serif;
+  --ff-body: "DM Sans", system-ui, sans-serif;
+
+  /* Miscellaneous */
+  --radius: 0.5rem;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --transition: 0.2s ease-in-out;
+  --max-width: 1120px;
+}
+
+/* ================================================
+   LAYER 3 — BASIC STYLES
+   ================================================ */
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--ff-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--ff-heading);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* Layout */
+.container {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Botón */
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  transition: background-color var(--transition);
+}
+
+.btn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Formulario */
+.form {
+  width: 90vw;
+  max-width: 600px;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2rem;
+  margin: 3rem auto;
+}
+
+.form-row {
+  margin-bottom: 1.2rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--color-primary);
+}
+
+.form-input,
+.form-select {
+  height: 2.5rem;
+}
+
+.form-textarea {
+  height: 7rem;
+  resize: vertical;
+}
+
+::placeholder {
+  color: var(--color-text-muted);
+}
+
+.form-alert {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--color-error);
+}

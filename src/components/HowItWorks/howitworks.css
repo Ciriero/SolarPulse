@@ -1,0 +1,112 @@
+/* ================================================
+   HOW IT WORKS SECTION
+   ================================================ */
+
+.how-section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 2rem 7rem;
+  background-color: var(--color-form-section-bg);
+}
+
+.how-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.how-title {
+  font-family: var(--ff-heading);
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  color: var(--color-text);
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.how-highlight {
+  color: var(--color-primary);
+}
+
+/* ================================================
+   GRID: three columns separated by borders
+   ================================================ */
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.how-card {
+  background: var(--color-surface);
+  padding: 2rem 1.75rem 3rem;
+}
+
+.how-card:nth-child(2) {
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+}
+
+/* ================================================
+   ICON
+   ================================================ */
+
+.how-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+
+.how-card-title {
+  font-family: var(--ff-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.6rem;
+}
+
+.how-card-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+
+@media (max-width: 768px) {
+  .how-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .how-card {
+    padding: 2rem 1.5rem 2.5rem;
+  }
+
+  .how-card:nth-child(2) {
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .how-card {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .how-card:last-child {
+    border-bottom: none;
+  }
+}
