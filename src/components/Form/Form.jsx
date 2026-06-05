@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "../Modal/Modal";
 import "./form.css";
 import "../Modal/modal.css";
+import axios from "axios";
 
 const Form = () => {
   const INITIAL_STATE = {
@@ -16,7 +17,7 @@ const Form = () => {
   //Error message
   const [warning, setWarning] = useState({ isOpen: false, text: "" });
 
-  const handleForm = (e) => {
+  const handleForm = async (e) => {
     e.preventDefault();
     const { name, email, zipcode, consumption } = term;
     // Validations
@@ -38,8 +39,41 @@ const Form = () => {
       return;
     }
 
-    //TODO: replace with Make webhook //
-    console.log("Datos listos para Make:", term);
+
+    //Conecting wiht Make
+    //Payload to make data more manageable witg Airtable and Hubspot
+  try {
+      const payload = {
+        name: term.name,
+        email: term.email,
+        zipcode: term.zipcode,
+        consumption: term.consumption,
+        comments: term.comments,
+      };
+
+      const response = await axios.post(
+        import.meta.env.VITE_MAKE_WEBHOOK_URL,
+        payload,
+      );
+
+      if (response.status === 200 || response.status === 201) {
+        setWarning({
+          isOpen: true,
+          text: "¡Gracias! Hemos recibido tus datos.",
+        });
+        setTerm(INITIAL_STATE); // Clear form after success sending
+      }
+    } catch (error) {
+      console.error(
+        "Error al enviar a Make:",
+        error.response?.data || error.message,
+      );
+      setWarning({
+        isOpen: true,
+        text: "Hubo un error al enviar los datos. Inténtalo de nuevo.",
+      });
+    }
+  
   };
   //Only one handle for all inputs
   const handleInputs = (e) => {
