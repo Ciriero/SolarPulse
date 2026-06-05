@@ -20,7 +20,7 @@ const Header = () => {
           <a href="#como-funciona" className="nav-link" onClick={closeMenu}>Cómo funciona</a>
           <a href="#calculadora" className="nav-link" onClick={closeMenu}>Calculadora</a>
           <a href="#casos" className="nav-link" onClick={closeMenu}>Casos de éxito</a>
-          <a href="#calcular" className="nav-link nav-cta" onClick={closeMenu}>Calcular ahorro</a>
+          <a href="#login" className="nav-link nav-cta" onClick={closeMenu}>Login</a>
         </nav>
 
         <button

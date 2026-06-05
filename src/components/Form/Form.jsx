@@ -155,7 +155,7 @@ const Form = () => {
               id="comments"
               value={term.comments}
               onChange={handleInputs}
-              placeholder="Ej: Mi factura de luz es muy alta y pago mucho para mi consumo..."
+              placeholder="Ej: Mi factura de luz es muy alta y pago mucho para el consumo que tengo ..."
               rows={5}
             />
           </div>
