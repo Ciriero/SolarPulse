@@ -45,7 +45,7 @@ const Form = () => {
   try {
       const payload = {
         name: term.name,
-        email: term.email,
+        email: term.email.toLowerCase(), //save email value with lowercase format for deduplication
         zipcode: term.zipcode,
         consumption: term.consumption,
         comments: term.comments,
