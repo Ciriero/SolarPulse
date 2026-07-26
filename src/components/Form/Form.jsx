@@ -11,6 +11,7 @@ const Form = () => {
     zipcode: "", //use string and no number for de .lenght validation
     consumption: "",
     comments: "",
+    phone: "", //
   };
 
   const [term, setTerm] = useState(INITIAL_STATE);
@@ -39,16 +40,21 @@ const Form = () => {
       return;
     }
 
+    if (term.phone !== "" && term.phone.length !== 9){
+      setWarning({ isOpen: true, text: "Introduce un móvil correcto" });
+      return;
+    }
 
     //Conecting wiht Make
     //Payload to make data more manageable witg Airtable and Hubspot
-  try {
+    try {
       const payload = {
         name: term.name,
         email: term.email.toLowerCase(), //save email value with lowercase format for deduplication
         zipcode: term.zipcode,
         consumption: term.consumption,
         comments: term.comments,
+        phone: term.phone,
       };
 
       const response = await axios.post(
@@ -73,7 +79,6 @@ const Form = () => {
         text: "Hubo un error al enviar los datos. Inténtalo de nuevo.",
       });
     }
-  
   };
   //Only one handle for all inputs
   const handleInputs = (e) => {
@@ -161,6 +166,7 @@ const Form = () => {
               value={term.zipcode}
               placeholder="28001"
               onChange={handleInputs}
+              maxLength={5}
             />
           </div>
 
@@ -178,6 +184,21 @@ const Form = () => {
               <option value="10000-20000">10.000 – 20.000 kWh</option>
               <option value="20000+">+ 20.000 kWh</option>
             </select>
+          </div>
+
+          <div className="form-field">
+            <label htmlFor="phone">
+              Móvil<span>(opcional)</span>
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              value={term.phone}
+              onChange={handleInputs}
+              placeholder="626555555"
+              maxLength={9}
+            />
           </div>
 
           <div className="form-field">
