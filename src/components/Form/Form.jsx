@@ -179,10 +179,10 @@ const Form = () => {
               onChange={handleInputs}
             >
               <option value="">-- Selecciona consumo --</option>
-              <option value="1000-5000">1.000 – 5.000 kWh</option>
-              <option value="5000-10000">5.000 – 10.000 kWh</option>
-              <option value="10000-20000">10.000 – 20.000 kWh</option>
-              <option value="20000+">+ 20.000 kWh</option>
+              <option value="consumo_1">1.000 – 5.000 kWh</option>
+              <option value="consumo_2">5.000 – 10.000 kWh</option>
+              <option value="consumo_3">10.000 – 20.000 kWh</option>
+              <option value="consumo_4">+ 20.000 kWh</option>
             </select>
           </div>
 
