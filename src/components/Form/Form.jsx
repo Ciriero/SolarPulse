@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "../Modal/Modal";
 import "./form.css";
 import "../Modal/modal.css";
+import axios from "axios";
 
 const Form = () => {
   const INITIAL_STATE = {
@@ -10,13 +11,14 @@ const Form = () => {
     zipcode: "", //use string and no number for de .lenght validation
     consumption: "",
     comments: "",
+    phone: "", //
   };
 
   const [term, setTerm] = useState(INITIAL_STATE);
   //Error message
   const [warning, setWarning] = useState({ isOpen: false, text: "" });
 
-  const handleForm = (e) => {
+  const handleForm = async (e) => {
     e.preventDefault();
     const { name, email, zipcode, consumption } = term;
     // Validations
@@ -38,8 +40,45 @@ const Form = () => {
       return;
     }
 
-    //TODO: replace with Make webhook //
-    console.log("Datos listos para Make:", term);
+    if (term.phone !== "" && term.phone.length !== 9){
+      setWarning({ isOpen: true, text: "Introduce un móvil correcto" });
+      return;
+    }
+
+    //Conecting wiht Make
+    //Payload to make data more manageable witg Airtable and Hubspot
+    try {
+      const payload = {
+        name: term.name,
+        email: term.email.toLowerCase(), //save email value with lowercase format for deduplication
+        zipcode: term.zipcode,
+        consumption: term.consumption,
+        comments: term.comments,
+        phone: term.phone,
+      };
+
+      const response = await axios.post(
+        import.meta.env.VITE_MAKE_WEBHOOK_URL,
+        payload,
+      );
+
+      if (response.status === 200 || response.status === 201) {
+        setWarning({
+          isOpen: true,
+          text: "¡Gracias! Hemos recibido tus datos.",
+        });
+        setTerm(INITIAL_STATE); // Clear form after success sending
+      }
+    } catch (error) {
+      console.error(
+        "Error al enviar a Make:",
+        error.response?.data || error.message,
+      );
+      setWarning({
+        isOpen: true,
+        text: "Hubo un error al enviar los datos. Inténtalo de nuevo.",
+      });
+    }
   };
   //Only one handle for all inputs
   const handleInputs = (e) => {
@@ -127,6 +166,7 @@ const Form = () => {
               value={term.zipcode}
               placeholder="28001"
               onChange={handleInputs}
+              maxLength={5}
             />
           </div>
 
@@ -139,11 +179,26 @@ const Form = () => {
               onChange={handleInputs}
             >
               <option value="">-- Selecciona consumo --</option>
-              <option value="1000-5000">1.000 – 5.000 kWh</option>
-              <option value="5000-10000">5.000 – 10.000 kWh</option>
-              <option value="10000-20000">10.000 – 20.000 kWh</option>
-              <option value="20000+">+ 20.000 kWh</option>
+              <option value="consumo_1">1.000 – 5.000 kWh</option>
+              <option value="consumo_2">5.000 – 10.000 kWh</option>
+              <option value="consumo_3">10.000 – 20.000 kWh</option>
+              <option value="consumo_4">+ 20.000 kWh</option>
             </select>
+          </div>
+
+          <div className="form-field">
+            <label htmlFor="phone">
+              Móvil<span>(opcional)</span>
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              value={term.phone}
+              onChange={handleInputs}
+              placeholder="626555555"
+              maxLength={9}
+            />
           </div>
 
           <div className="form-field">
